@@ -1,0 +1,1 @@
+"""XAUUSD Wolf Market Scanner application package."""

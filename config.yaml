@@ -1,0 +1,89 @@
+market:
+  symbol_candidates:
+    - "XAUUSD.r"
+    - "XAUUSD"
+    - "XAUUSDm"
+    - "GOLD"
+  default_symbol: "XAUUSD.r"
+  timeframes:
+    - "H4"
+    - "H1"
+    - "M30"
+    - "M15"
+    - "M5"
+  candle_count: 300
+
+app:
+  refresh_seconds: 5
+
+market_status:
+  live_tick_max_age_seconds: 15
+  recent_data_max_age_seconds: 300
+  stale_data_max_age_seconds: 1800
+  # Initial UTC weekly session; refine this for broker-specific schedules and holidays.
+  session_timezone: "UTC"
+  weekly_open_day: 6
+  weekly_open_hour: 22
+  weekly_close_day: 4
+  weekly_close_hour: 22
+
+indicators:
+  ema_periods: [9, 21, 50, 200]
+  rsi_period: 14
+  adx_period: 14
+  atr_period: 14
+  bollinger_period: 20
+  bollinger_std: 2
+  macd_fast_period: 12
+  macd_slow_period: 26
+  macd_signal_period: 9
+  stochastic_k_period: 14
+  stochastic_k_smoothing: 3
+  stochastic_d_period: 3
+  # A swing is recorded only after this many later candles confirm the pivot.
+  swing_lookback: 3
+  recent_extreme_period: 20
+
+signals:
+  buy_threshold: 70
+  sell_threshold: 70
+  minimum_directional_edge: 20
+  very_strong_score: 85
+  very_strong_edge: 30
+  history_size: 100
+  adx_weak: 15
+  adx_developing: 20
+  adx_established: 25
+  adx_strong: 30
+  rsi_bullish_min: 50
+  rsi_bullish_max: 65
+  rsi_bearish_min: 35
+  rsi_bearish_max: 50
+  rsi_overbought: 70
+  rsi_oversold: 30
+  atr_low_percent: 0.15
+  atr_normal_percent: 0.40
+  atr_high_percent: 0.70
+  sr_proximity_atr: 0.75
+  weights:
+    macro_trend: 30
+    entry_trend: 20
+    momentum: 20
+    structure: 15
+    volatility: 5
+    candle: 5
+    support_resistance: 5
+
+backtest:
+  horizons: [1, 3, 5, 10]
+  default_horizon: 5
+  spread_percent: 0.0
+  slippage_percent: 0.0
+  commission_percent: 0.0
+  session_timezone: "UTC"
+
+mt5:
+  terminal_path: null
+  login: null
+  password: null
+  server: null
