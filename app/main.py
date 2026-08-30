@@ -4,6 +4,14 @@ from __future__ import annotations
 
 import logging
 from pathlib import Path
+import sys
+
+# Streamlit Cloud executes this file directly, which may put ``app/`` rather
+# than the repository root on sys.path. Keep absolute ``app.*`` imports
+# portable for both ``streamlit run app/main.py`` and local Windows launches.
+PROJECT_PATH = Path(__file__).resolve().parents[1]
+if str(PROJECT_PATH) not in sys.path:
+    sys.path.insert(0, str(PROJECT_PATH))
 
 import pandas as pd
 import streamlit as st
